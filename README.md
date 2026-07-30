@@ -12,6 +12,7 @@ The site provides a product overview, privacy policy, technical support, terms o
 - [Language selector](https://17classdeveloper-design.github.io/TraderMap/)
 - [English](https://17classdeveloper-design.github.io/TraderMap/en/)
 - [简体中文](https://17classdeveloper-design.github.io/TraderMap/zh-hans/)
+- [العربية](https://17classdeveloper-design.github.io/TraderMap/ar/)
 
 ## Pages
 
@@ -34,19 +35,36 @@ Supported languages:
 | `zh-hant` | 繁體中文 |
 | `de` | Deutsch |
 | `fr` | Français |
+| `ro` | Română |
+| `uk` | Українська |
+| `ru` | Русский |
+| `id` | Bahasa Indonesia |
+| `tr` | Türkçe |
+| `pt` | Português |
+| `es` | Español |
+| `ar` | العربية |
 
 ## Project structure
 
 ```text
 TraderMap/
 ├── assets/             Shared stylesheet and favicon
+├── ar/                 Arabic pages (right-to-left)
 ├── de/                 German pages
 ├── en/                 English pages
+├── es/                 Spanish pages
 ├── fr/                 French pages
+├── id/                 Indonesian pages
 ├── ja/                 Japanese pages
 ├── ko/                 Korean pages
+├── pt/                 Portuguese pages
+├── ro/                 Romanian pages
+├── ru/                 Russian pages
+├── tr/                 Turkish pages
+├── uk/                 Ukrainian pages
 ├── zh-hans/            Simplified Chinese pages
 ├── zh-hant/            Traditional Chinese pages
+├── tools/              Translation data and static-page generator
 ├── 404.html            GitHub Pages fallback
 ├── index.html          Language selector
 ├── robots.txt
@@ -89,6 +107,15 @@ git push origin main:gh-pages
 ```
 
 The `.nojekyll` file keeps GitHub Pages in static-file mode.
+
+## Regenerating localized pages
+
+The eight additional language sets are maintained by `tools/generate_languages.py`.
+After editing translation copy or the shared language list, regenerate the site with:
+
+```bash
+python3 tools/generate_languages.py
+```
 
 ## Support
 
