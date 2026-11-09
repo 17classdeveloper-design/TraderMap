@@ -4,6 +4,7 @@ DATA = {
     "lang": "pt",
     "name": "Português",
     "language_label": "Idioma · Português",
+    "nav_label": "Navegação principal",
     "nav": {
         "home": "Visão geral",
         "privacy": "Privacidade",
@@ -21,6 +22,7 @@ DATA = {
         "lede": "O TraderMap apresenta preços de mercado, gráficos, grandes negociações, liquidações, notícias e sinais analíticos no iPhone, iPad e Apple TV.",
         "intro": "Este site oficial fornece a política de privacidade, o suporte técnico, os termos e as informações do operador para ambas as versões do TraderMap.",
         "no_tracking": "Sem anúncios. Sem análises de terceiros. Sem rastreamento.",
+        "market_pulse": "Pulso do mercado",
         "platform_title": "Criado para as plataformas Apple",
         "platform_desc": "O app para iOS/iPadOS oferece um espaço de trabalho interativo para mercados. O app para tvOS oferece um painel para a sala, adaptado ao controle remoto. Nenhum dos apps conecta carteiras, executa ordens ou mantém ativos sob custódia.",
     },

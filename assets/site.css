@@ -48,7 +48,7 @@ nav a:hover, nav a[aria-current="page"] { color: var(--text); background: var(--
 
 main { padding: 72px 0; }
 .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .15em; font: 700 12px/1.4 ui-monospace, monospace; }
-h1, h2 { line-height: 1.12; letter-spacing: -.035em; margin: 0; }
+h1, h2 { line-height: 1.12; letter-spacing: -.035em; margin: 0; overflow-wrap: anywhere; hyphens: auto; }
 h1 { max-width: 780px; font-size: clamp(44px, 6vw, 72px); }
 h2 { font-size: clamp(24px, 3vw, 34px); }
 p { color: var(--muted); }
@@ -167,8 +167,7 @@ footer p { margin: 0; }
   letter-spacing: 0;
   font-family: inherit;
 }
-[dir="rtl"] code, [dir="rtl"] .section-number, [dir="rtl"] .signal-card span,
-[dir="rtl"] .signal-card strong {
+[dir="rtl"] code, [dir="rtl"] .section-number, [dir="rtl"] .signal-card span {
   direction: ltr;
   unicode-bidi: isolate;
 }

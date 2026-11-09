@@ -115,7 +115,14 @@ After editing translation copy or the shared language list, regenerate the site 
 
 ```bash
 python3 tools/generate_languages.py
+python3 tools/validate_site.py
 ```
+
+The generator keeps language menus on the current page (for example, switching
+from Arabic privacy to Romanian privacy), synchronizes `hreflang` links and the
+sitemap, and localizes navigation accessibility labels and the market pulse card.
+Arabic pages use right-to-left layout, with explicit text direction for language
+names and left-to-right identifiers. Long translated headings wrap on narrow screens.
 
 ## Support
 

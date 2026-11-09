@@ -4,6 +4,7 @@ DATA = {
     "lang": "tr",
     "name": "Türkçe",
     "language_label": "Dil · Türkçe",
+    "nav_label": "Ana gezinme",
     "nav": {
         "home": "Genel Bakış",
         "privacy": "Gizlilik",
@@ -21,6 +22,7 @@ DATA = {
         "lede": "TraderMap; piyasa fiyatlarını, grafikleri, büyük işlemleri, likidasyonları, haberleri ve analitik sinyalleri iPhone, iPad ve Apple TV'de sunar.",
         "intro": "Bu resmî site, her iki TraderMap sürümü için gizlilik politikasını, teknik desteği, koşulları ve işletmeci bilgilerini içerir.",
         "no_tracking": "Reklam yok. Üçüncü taraf analitiği yok. Takip yok.",
+        "market_pulse": "Piyasanın nabzı",
         "platform_title": "Apple platformları için tasarlandı",
         "platform_desc": "iOS/iPadOS uygulaması etkileşimli bir piyasa çalışma alanı sunar. tvOS uygulaması, uzaktan kumandaya uygun bir salon panosu sunar. Hiçbir uygulama cüzdan bağlamaz, emir gerçekleştirmez veya varlık saklamaz.",
     },

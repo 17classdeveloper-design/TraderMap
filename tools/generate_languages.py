@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://17classdeveloper-design.github.io/TraderMap"
 BASE = "/TraderMap"
 EFFECTIVE_DATE = "2026-07-22"
-LAST_MODIFIED = "2026-07-30"
+LAST_MODIFIED = "2026-11-09"
 
 ALL_LANGUAGES = [
     ("en", "en", "English", False),
@@ -41,6 +41,7 @@ TEXTS = {
         "lang": "ro",
         "name": "Română",
         "language_label": "Limbă · Română",
+        "nav_label": "Navigare principală",
         "nav": {
             "home": "Prezentare",
             "privacy": "Confidențialitate",
@@ -58,6 +59,7 @@ TEXTS = {
             "lede": "TraderMap prezintă prețuri de piață, grafice, tranzacții mari, lichidări, știri și semnale analitice pe iPhone, iPad și Apple TV.",
             "intro": "Acest site oficial oferă politica de confidențialitate, asistență tehnică, termenii și informațiile despre operator pentru ambele versiuni TraderMap.",
             "no_tracking": "Fără reclame. Fără analiză terță. Fără urmărire.",
+            "market_pulse": "Pulsul pieței",
             "platform_title": "Conceput pentru platformele Apple",
             "platform_desc": "Aplicația iOS/iPadOS oferă un spațiu interactiv pentru piețe. Aplicația tvOS oferă un tablou de bord pentru sufragerie, adaptat telecomenzii. Niciuna dintre aplicații nu conectează portofele, nu execută ordine și nu păstrează active.",
         },
@@ -253,6 +255,7 @@ TEXTS = {
         "lang": "uk",
         "name": "Українська",
         "language_label": "Мова · Українська",
+        "nav_label": "Основна навігація",
         "nav": {
             "home": "Огляд",
             "privacy": "Конфіденційність",
@@ -270,6 +273,7 @@ TEXTS = {
             "lede": "TraderMap показує ринкові ціни, графіки, великі угоди, ліквідації, новини та аналітичні сигнали на iPhone, iPad і Apple TV.",
             "intro": "Цей офіційний сайт містить політику конфіденційності, технічну підтримку, умови та інформацію про оператора для обох версій TraderMap.",
             "no_tracking": "Без реклами. Без сторонньої аналітики. Без відстеження.",
+            "market_pulse": "Пульс ринку",
             "platform_title": "Створено для платформ Apple",
             "platform_desc": "Застосунок для iOS/iPadOS пропонує інтерактивний робочий простір для ринку. Застосунок для tvOS пропонує зручну для пульта панель на великому екрані. Жоден застосунок не підключає гаманець, не виконує ордери й не зберігає активи.",
         },
@@ -465,6 +469,7 @@ TEXTS = {
         "lang": "ru",
         "name": "Русский",
         "language_label": "Язык · Русский",
+        "nav_label": "Основная навигация",
         "nav": {
             "home": "Обзор",
             "privacy": "Конфиденциальность",
@@ -482,6 +487,7 @@ TEXTS = {
             "lede": "TraderMap показывает рыночные цены, графики, крупные сделки, ликвидации, новости и аналитические сигналы на iPhone, iPad и Apple TV.",
             "intro": "На этом официальном сайте размещены политика конфиденциальности, техническая поддержка, условия и информация об операторе для обеих версий TraderMap.",
             "no_tracking": "Без рекламы. Без сторонней аналитики. Без отслеживания.",
+            "market_pulse": "Пульс рынка",
             "platform_title": "Создано для платформ Apple",
             "platform_desc": "Приложение для iOS/iPadOS предоставляет интерактивное рабочее пространство для рынка. Приложение для tvOS предлагает удобную для пульта панель на большом экране. Ни одно из приложений не подключает кошелёк, не исполняет ордера и не хранит активы.",
         },
@@ -677,6 +683,7 @@ TEXTS = {
         "lang": "id",
         "name": "Bahasa Indonesia",
         "language_label": "Bahasa · Bahasa Indonesia",
+        "nav_label": "Navigasi utama",
         "nav": {
             "home": "Ikhtisar",
             "privacy": "Privasi",
@@ -694,6 +701,7 @@ TEXTS = {
             "lede": "TraderMap menyajikan harga pasar, grafik, transaksi besar, likuidasi, berita, dan sinyal analitis di iPhone, iPad, dan Apple TV.",
             "intro": "Situs resmi ini menyediakan kebijakan privasi, dukungan teknis, ketentuan, dan informasi operator untuk kedua versi TraderMap.",
             "no_tracking": "Tanpa iklan. Tanpa analitik pihak ketiga. Tanpa pelacakan.",
+            "market_pulse": "Denyut pasar",
             "platform_title": "Dirancang untuk platform Apple",
             "platform_desc": "Aplikasi iOS/iPadOS menyediakan ruang kerja pasar interaktif. Aplikasi tvOS menyediakan dasbor layar besar yang ramah kendali jarak jauh. Keduanya tidak menghubungkan dompet, melaksanakan order, atau menyimpan aset.",
         },
@@ -911,7 +919,7 @@ def language_menu(current_slug: str, page: str) -> str:
     links = []
     for slug, html_lang, name, rtl in ALL_LANGUAGES:
         current = ' aria-current="true"' if slug == current_slug else ""
-        direction = ' dir="rtl"' if rtl else ""
+        direction = ' dir="rtl"' if rtl else ' dir="ltr"'
         links.append(
             f'<a lang="{html_lang}"{direction} href="{BASE}/{slug}/{suffix}"{current}>{name}</a>'
         )
@@ -985,12 +993,12 @@ def render_home(slug: str, data: dict) -> str:
 <div class="shell">
 <header class="site-header">
   <a class="brand" href="{BASE}/{slug}/" aria-label="TraderMap"><span class="brand-mark">TM</span><span>TraderMap</span></a>
-  <nav aria-label="Primary">{nav(data, slug, "home")}</nav>
+  <nav aria-label="{escape(data['nav_label'], quote=True)}">{nav(data, slug, "home")}</nav>
 </header>
 <main>
   <section class="hero">
     <div><div class="eyebrow">{escape(h["eyebrow"])}</div><h1>{escape(h["title"])}</h1><p class="lede">{escape(h["lede"])}</p><p>{escape(h["intro"])}</p><div class="actions"><a class="button primary" href="{BASE}/{slug}/privacy/">{escape(data["nav"]["privacy"])}</a><a class="button" href="{BASE}/{slug}/support/">{escape(data["nav"]["support"])}</a></div></div>
-    <div class="signal-card"><div class="signal-grid"></div><span>BTC · ETH · SOL · XRP</span><strong>MARKET PULSE</strong><small>{escape(h["no_tracking"])}</small></div>
+    <div class="signal-card"><div class="signal-grid"></div><span>BTC · ETH · SOL · XRP</span><strong>{escape(h["market_pulse"])}</strong><small>{escape(h["no_tracking"])}</small></div>
   </section>
   <section class="platform-card"><div><span class="platform-icon"></span></div><div><h2>{escape(h["platform_title"])}</h2><p>{escape(h["platform_desc"])}</p><div class="bundle"><code>com.17class.TraderMap</code><code>com.17class.TraderMapTV</code></div></div></section>
   <section class="link-grid">{"".join(cards)}</section>
@@ -1013,7 +1021,7 @@ def render_document(slug: str, data: dict, page: str) -> str:
 <div class="shell">
 <header class="site-header">
   <a class="brand" href="{BASE}/{slug}/" aria-label="TraderMap"><span class="brand-mark">TM</span><span>TraderMap</span></a>
-  <nav aria-label="Primary">{nav(data, slug, page)}</nav>
+  <nav aria-label="{escape(data['nav_label'], quote=True)}">{nav(data, slug, page)}</nav>
 </header>
 <main>
   <div class="eyebrow">{escape(data["official"])}</div>
